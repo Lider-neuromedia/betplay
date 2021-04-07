@@ -41,7 +41,7 @@ class Code extends Model
 
         if ($code == null) {
 
-            throw new \Exception("No hay códigos disponibles", 1);
+            throw new \Exception("Ya no hay códigos disponibles", 999);
 
         }
 
