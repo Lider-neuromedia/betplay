@@ -3,9 +3,11 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\Mail;
 use League\Csv\Reader;
 use Carbon\Carbon;
 use App\Client;
+use App\Mail\CodeAssigned;
 
 class Code extends Model
 {
@@ -21,12 +23,17 @@ class Code extends Model
         'observation',
     ];
 
+    protected $dates = [
+        'activation_date_start',
+        'activation_date_end',
+    ];
+
     public function client()
     {
         return $this->hasOne('App\Client');
     }
 
-    public static function asignCodeToClient(Client $client)
+    public static function assignCodeToClient(Client $client)
     {
         $code = Code::whereDoesntHave('client')
             ->orderBy('consecutive', 'asc')
@@ -40,6 +47,8 @@ class Code extends Model
 
         $client->code()->associate($code);
         $client->save();
+
+        Mail::to($client->email)->send(new CodeAssigned($client));
     }
 
     public static function loadCodesFromCSV()

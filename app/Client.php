@@ -25,8 +25,6 @@ class Client extends Model
 
     public static function testCreateClients($count)
     {
-        $message = '';
-
         try {
 
             for ($i=0; $i < $count; $i++) {
@@ -42,7 +40,7 @@ class Client extends Model
 
                     if (!$client->has_betplay_account) {
 
-                        Code::asignCodeToClient($client);
+                        Code::assignCodeToClient($client);
 
                     }
                 }
@@ -51,7 +49,8 @@ class Client extends Model
 
         } catch (\Exception $ex) {
 
-            $message = $ex->getMessage();
+            \Log::info($ex->getMessage());
+            \Log::info($ex->getTraceAsString());
 
         }
 
