@@ -24,10 +24,10 @@ class ContestantRequest extends FormRequest
     public function rules()
     {
         return [
-            'name' => 'required|string|max:100',
+            'name' => 'required|string|max:50',
             'document' => 'required|digits_between:8,10|unique:clients,document',
-            'email' => 'required|string|email|max:100|unique:clients,email',
-            'phone' => 'required|string|max:100',
+            'email' => 'required|string|email|max:50|unique:clients,email',
+            'phone' => 'required|string|max:30',
             'address' => 'required|string|max:100',
             'of_legal_age' => 'required|boolean',
             'accept_terms_and_conditions' => 'required|boolean',

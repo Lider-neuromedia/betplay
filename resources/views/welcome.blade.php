@@ -31,8 +31,11 @@
                             <div class="form-group">
                                 <label
                                     for="name">
+                                    <strong class="text-danger">*</strong>
                                     Nombre completo</label>
                                 <input
+                                    required
+                                    maxlength="50"
                                     type="text"
                                     class="form-control @error('name') is-invalid @enderror"
                                     id="name"
@@ -49,8 +52,12 @@
                             <div class="form-group">
                                 <label
                                     for="document">
+                                    <strong class="text-danger">*</strong>
                                     Cédula</label>
                                 <input
+                                    required
+                                    minlength="8"
+                                    maxlength="10"
                                     type="text"
                                     class="form-control @error('document') is-invalid @enderror"
                                     id="document"
@@ -67,8 +74,11 @@
                             <div class="form-group">
                                 <label
                                     for="email">
+                                    <strong class="text-danger">*</strong>
                                     Correo electrónico</label>
                                 <input
+                                    required
+                                    maxlength="50"
                                     type="email"
                                     class="form-control @error('email') is-invalid @enderror"
                                     id="email"
@@ -85,8 +95,11 @@
                             <div class="form-group">
                                 <label
                                     for="phone">
+                                    <strong class="text-danger">*</strong>
                                     Celular</label>
                                 <input
+                                    required
+                                    maxlength="30"
                                     type="text"
                                     class="form-control @error('phone') is-invalid @enderror"
                                     id="phone"
@@ -103,8 +116,11 @@
                             <div class="form-group">
                                 <label
                                     for="address">
+                                    <strong class="text-danger">*</strong>
                                     Dirección</label>
                                 <input
+                                    required
+                                    maxlength="100"
                                     type="text"
                                     class="form-control @error('address') is-invalid @enderror"
                                     id="address"
@@ -121,6 +137,7 @@
                             <div class="form-group form-check">
                                 <input
                                     @if (old('accept_terms_and_conditions')) checked @endif
+                                    required
                                     type="checkbox"
                                     class="form-check-input @error('accept_terms_and_conditions') is-invalid @enderror"
                                     name="accept_terms_and_conditions"
@@ -129,6 +146,7 @@
                                 <label
                                     class="form-check-label"
                                     for="accept_terms_and_conditions">
+                                    <strong class="text-danger">*</strong>
                                     Conozco y acepto la política de datos de REDCOLSA.</label>
                                 @error('accept_terms_and_conditions')
                                     <div class="invalid-feedback">
@@ -141,6 +159,7 @@
                             <div class="form-group form-check">
                                 <input
                                     @if (old('of_legal_age')) checked @endif
+                                    required
                                     type="checkbox"
                                     class="form-check-input @error('of_legal_age') is-invalid @enderror"
                                     name="of_legal_age"
@@ -149,6 +168,7 @@
                                 <label
                                     class="form-check-label"
                                     for="of_legal_age">
+                                    <strong class="text-danger">*</strong>
                                     Soy mayor de edad</label>
                                 @error('of_legal_age')
                                     <div class="invalid-feedback">
@@ -178,11 +198,13 @@
                             </div>
 
                             {{-- Submit --}}
-                            <button
-                                id="btn-submit"
-                                type="submit"
-                                class="btn btn-primary">
-                                Registrar</button>
+                            <div class="form-group text-right">
+                                <button
+                                    id="btn-submit"
+                                    type="submit"
+                                    class="btn btn-primary">
+                                    Registrar</button>
+                            </div>
 
                         </form>
 
