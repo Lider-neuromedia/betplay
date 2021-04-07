@@ -6,6 +6,14 @@
 
     <div class="container">
 
+        <div class="row align-center mt-5">
+            <div class="col-xs-12 col-sm-8 mx-auto">
+
+                @include('partials.messages')
+
+            </div>
+        </div>
+
         <div class="row align-center">
             <div class="col-xs-12 col-sm-8 mx-auto">
 
@@ -15,7 +23,7 @@
                     </div>
                     <div class="card-body">
 
-                        <form action="{{ url('/betplay') }}" method="post">
+                        <form action="{{ url('/betplay') }}" method="post" onsubmit="onSubmit()">
 
                             @csrf
 
@@ -171,6 +179,7 @@
 
                             {{-- Submit --}}
                             <button
+                                id="btn-submit"
                                 type="submit"
                                 class="btn btn-primary">
                                 Registrar</button>
@@ -184,5 +193,40 @@
         </div>
 
     </div>
+
+@endsection
+
+@section('footer-scripts')
+
+    <script>
+
+        function onSubmit() {
+            var button = document.getElementById('btn-submit');
+            button.setAttribute('disabled', true);
+            button.innerText = 'Enviando...';
+
+            var count = 1;
+
+            setInterval(function() {
+                let dots = '';
+
+                for (let index = 0; index < count; index++) {
+                    dots += '.';
+                }
+
+                count++;
+
+                if (count == 4) count = 1;
+
+                button.innerText = 'Enviando' + dots;
+
+            }, 500);
+
+            console.log('ok');
+
+            return true;
+        }
+
+    </script>
 
 @endsection
