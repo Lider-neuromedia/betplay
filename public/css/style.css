@@ -268,11 +268,17 @@ body{
     margin: 0 auto;
     margin-top: 25px;
 }
-
 input#registrar-usuario:hover {
     background-color: #fff;
     transition: .3s;
     border: 1px solid #1E3480;
+}
+input#registrar-usuario:disabled {
+    background-color: #ccc;
+    border: 1px solid #ccc;
+    color: rgb(66, 66, 66);
+    transition: .3s;
+
 }
 /******************/
 /**** Columnas Blancas ****/

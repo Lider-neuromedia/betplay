@@ -30,6 +30,9 @@
     <script src="{{ asset('js/slider.js') }}"></script>
 </head>
 <body>
+
+    @include('partials.messages')
+
     <div class="content-social-bar">
         <a class="hidden-xs hidden-sm redes fb" href="https://www.facebook.com/REDCOLSA" target="_blank">
         </a>
@@ -230,7 +233,7 @@
                                     name="accept_terms_and_conditions"
                                     id="terminos"
                                     style="width: 12px;">
-    						    Conozco y acepto la <a class="font-weight700 text-white" href="https://www.gane.com.co/aviso-de-privacidad/">política de datos de REDCOLSA.</a>
+    						    Conozco y acepto la <a class="font-weight700 text-white" target="_blank" href="https://www.gane.com.co/aviso-de-privacidad/">política de datos de REDCOLSA.</a>
                                 @error('accept_terms_and_conditions')
                                     <div class="text-warning mb-3">
                                         <small>{{ $message }}</small>
@@ -373,5 +376,37 @@
 		</div>
 	</footer>
 	<!--Cierre del footer-->
+
+    <script>
+
+        // Bloquear formulario al darle al botón de enviar.
+
+        function onSubmit() {
+            var button = document.getElementById('registrar-usuario');
+            button.setAttribute('disabled', true);
+            button.setAttribute('value', 'Enviando...');
+
+            var count = 1;
+
+            setInterval(function() {
+                var dots = '';
+
+                for (var index = 0; index < count; index++) {
+                    dots += '.';
+                }
+
+                count++;
+
+                if (count == 4) count = 1;
+
+                button.setAttribute('value', 'Enviando' + dots);
+
+            }, 500);
+
+            return true;
+        }
+
+    </script>
+
 </body>
 </html>

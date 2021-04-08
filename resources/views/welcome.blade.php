@@ -244,8 +244,6 @@
 
             }, 500);
 
-            console.log('ok');
-
             return true;
         }
 
