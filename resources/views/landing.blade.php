@@ -100,28 +100,202 @@
                         <p id="texto2">¡Regístrate ahora!</p>
                     </div>
 					<div class="backgroundForm">
-						<form action="" id="formulario1" method="post" name="formulario1" class="mainForm">
-                            <label>Nombre Completo</label>
-                            <input type="text" name="nombre" required><br>
-                            <label>Cédula</label>
-                            <input type="number" name="cedula" max="10" required><br>
-                            <label>Correo electrónico</label>
-                            <input type="email" name="email" required><br>
-                            <label>Celular</label>
-                            <input type="tel" name="telefono" required><br>
-                            <label>Dirección</label>
-                            <input type="text" name="direccion" required><br>
-                            <small id="guardar-tirilla" class="mb-3 text-white form-text">Guardar la tirilla de recarga original previamente registrada para reclamar el premio.</small>
-                            <label style="color: #fff;font-size: 14px;">
-                                <input type="checkbox" name="terminos" id="terminos" required style="width: 12px;">
+						<form action="{{ url('/betplay') }}" method="post" onsubmit="onSubmit()" id="formulario1" name="formulario1" class="mainForm">
+
+                            @csrf
+
+                            {{-- Nombre completo --}}
+                            <label
+                                for="name"
+                                class="@error('name') text-warning @enderror">
+                                Nombre Completo</label>
+                                @error('name')
+                                    <div class="text-warning font-weight-bold">
+                                        <small>{{ $message }}</small>
+                                    </div>
+                                @enderror
+                            <input
+                                required
+                                class="@error('name') border border-warning @enderror"
+                                maxlength="50"
+                                value="{{ old('name') }}"
+                                type="text"
+                                id="name"
+                                name="name"><br>
+
+
+
+                            {{-- Cédula --}}
+                            <label
+                                for="document"
+                                class="@error('document') text-warning @enderror">
+                                Cédula</label>
+                            @error('document')
+                                <div class="text-warning font-weight-bold">
+                                    <small>{{ $message }}</small>
+                                </div>
+                            @enderror
+                            <input
+                                required
+                                class="@error('document') border border-warning @enderror"
+                                minlength="8"
+                                maxlength="10"
+                                value="{{ old('document') }}"
+                                type="text"
+                                id="document"
+                                name="document"><br>
+
+
+
+                            {{-- Correo electrónico --}}
+                            <label
+                                for="email"
+                                class="@error('email') text-warning @enderror">
+                                Correo electrónico</label>
+                                @error('email')
+                                    <div class="text-warning font-weight-bold">
+                                        <small>{{ $message }}</small>
+                                    </div>
+                                @enderror
+                            <input
+                                required
+                                class="@error('email') border border-warning @enderror"
+                                maxlength="50"
+                                value="{{ old('email') }}"
+                                type="email"
+                                id="email"
+                                name="email"><br>
+
+
+
+                            {{-- Celular --}}
+                            <label
+                                for="phone"
+                                class="@error('phone') text-warning @enderror">
+                                Celular</label>
+                            @error('phone')
+                                <div class="text-warning font-weight-bold">
+                                    <small>{{ $message }}</small>
+                                </div>
+                            @enderror
+                            <input
+                                required
+                                maxlength="30"
+                                class="@error('phone') border border-warning @enderror"
+                                value="{{ old('phone') }}"
+                                type="text"
+                                id="phone"
+                                name="phone"><br>
+
+
+
+                            {{-- Dirección --}}
+                            <label
+                                for="address"
+                                class="@error('address') text-warning @enderror">
+                                Dirección</label>
+                            @error('address')
+                                <div class="text-warning font-weight-bold">
+                                    <small>{{ $message }}</small>
+                                </div>
+                            @enderror
+                            <input
+                                required
+                                maxlength="100"
+                                class="@error('address') border border-warning @enderror"
+                                value="{{ old('address') }}"
+                                type="text"
+                                id="address"
+                                name="address"><br>
+
+
+
+                            <small
+                                id="guardar-tirilla"
+                                class="mb-3 text-white form-text">
+                                Guardar la tirilla de recarga original previamente registrada para reclamar el premio.
+                            </small>
+
+
+
+                            {{-- Conozco y acepto la política de datos de REDCOLSA. --}}
+                            <label
+                                class="@error('accept_terms_and_conditions') text-warning @enderror"
+                                style="color: #fff;font-size: 14px;">
+                                <input
+                                    required
+                                    @if (old('accept_terms_and_conditions')) checked @endif
+                                    value="1"
+                                    type="checkbox"
+                                    name="accept_terms_and_conditions"
+                                    id="terminos"
+                                    style="width: 12px;">
     						    Conozco y acepto la <a class="font-weight700 text-white" href="https://www.gane.com.co/aviso-de-privacidad/">política de datos de REDCOLSA.</a>
+                                @error('accept_terms_and_conditions')
+                                    <div class="text-warning mb-3">
+                                        <small>{{ $message }}</small>
+                                    </div>
+                                @enderror
                             </label>
-                            <label style="color: #fff;font-size: 14px;">
-                                <input type="checkbox" name="mayor-edad" id="terminos" required style="width: 12px;">
+
+
+
+                            {{-- Soy mayor de edad --}}
+                            <label
+                                class="@error('of_legal_age') text-warning @enderror"
+                                style="color: #fff;font-size: 14px;">
+                                <input
+                                    required
+                                    @if (old('of_legal_age')) checked @endif
+                                    value="1"
+                                    type="checkbox"
+                                    name="of_legal_age"
+                                    id="terminos"
+                                    style="width: 12px;">
                                 Soy mayor de edad
+                                @error('of_legal_age')
+                                    <div class="text-warning mb-3">
+                                        <small>{{ $message }}</small>
+                                    </div>
+                                @enderror
                             </label>
-    						<!--<div class="contactform-messages">Gracias por escribirnos.<br> Nos pondremos en contacto con usted.</div>-->
-						    <input type="submit" name="enviar" id="registrar-usuario" value="Registrar">
+
+
+
+                            {{-- Ya tengo cuenta en BetPlay --}}
+                            <div>
+                                <label
+                                    class="@error('has_betplay_account') text-warning @enderror"
+                                    style="color: #fff;font-size: 14px;">
+                                    <input
+                                        @if (old('has_betplay_account')) checked @endif
+                                        value="1"
+                                        type="checkbox"
+                                        name="has_betplay_account"
+                                        id="betplay"
+                                        style="width: 12px;">
+                                    Ya tengo cuenta en BetPlay
+                                    @error('has_betplay_account')
+                                        <div class="text-warning mb-3">
+                                            <small>{{ $message }}</small>
+                                        </div>
+                                    @enderror
+                                </label>
+                            </div>
+
+
+
+                            <!--<div class="contactform-messages">Gracias por escribirnos.<br> Nos pondremos en contacto con usted.</div>-->
+
+
+
+                            {{-- Submit --}}
+						    <input
+                                type="submit"
+                                name="enviar"
+                                id="registrar-usuario"
+                                value="Registrar">
+
 						</form>
 					</div>
 				</div>
