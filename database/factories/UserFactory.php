@@ -32,7 +32,7 @@ $factory->define(Client::class, function (Faker $faker) {
         'document' => $faker->numberBetween($min = 31148080, $max = 1119999199),
         'email' => $faker->safeEmail,
         'phone' => $faker->phoneNumber,
-        'address' => $faker->address,
+        'address' => str_replace(array("\r\n", "\r", "\n"), " ", $faker->streetAddress),
         'of_legal_age' => true,
         'accept_terms_and_conditions' => true,
         'has_betplay_account' => $faker->boolean,
