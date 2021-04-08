@@ -34,4 +34,19 @@ class ContestantRequest extends FormRequest
             'has_betplay_account' => 'nullable|boolean',
         ];
     }
+
+    public function messages()
+    {
+        return [
+            'name.required' => 'Campo obligatorio.',
+            'document.required' => 'Campo obligatorio.',
+            'email.required' => 'Campo obligatorio.',
+            'phone.required' => 'Campo obligatorio.',
+            'address.required' => 'Campo obligatorio.',
+            'of_legal_age.required' => 'Campo obligatorio.',
+            'accept_terms_and_conditions.required' => 'Campo obligatorio.',
+            'document.unique' => 'Número de cédula ya usado.',
+            'email.unique' => 'Correo ya usado.',
+        ];
+    }
 }
