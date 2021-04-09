@@ -214,18 +214,39 @@
 
 
 
-                            <small
-                                id="guardar-tirilla"
-                                class="mb-3 text-white form-text">
-                                Guardar la tirilla de recarga original previamente registrada para reclamar el premio.
-                            </small>
+                            {{-- Ya tengo cuenta en BetPlay --}}
+                            <div class="has_betplay">
+                                <input
+                                    @if (old('has_betplay_account') == '1') checked @endif
+                                    type="radio"
+                                    name="has_betplay_account"
+                                    id="has_betplay_account_1"
+                                    value="1"
+                                    required>
+                                <label for="has_betplay_account_1">
+                                    <span class="radio_checkbox"></span>
+                                    Tengo cuenta en BetPlay
+                                </label>
+
+                                <input
+                                    @if (old('has_betplay_account') == '0') checked @endif
+                                    type="radio"
+                                    name="has_betplay_account"
+                                    id="has_betplay_account_0"
+                                    value="0"
+                                    required>
+                                <label for="has_betplay_account_0">
+                                    <span class="radio_checkbox"></span>
+                                    No tengo cuenta en BetPlay
+                                </label>
+                            </div>
 
 
 
                             {{-- Conozco y acepto la política de datos de REDCOLSA. --}}
                             <label
                                 class="@error('accept_terms_and_conditions') text-warning @enderror"
-                                style="color: #fff;font-size: 14px;">
+                                style="color: #fff;font-size: 14px; margin: 0.5rem 0; text-align: center; width: 100%;">
                                 <input
                                     required
                                     @if (old('accept_terms_and_conditions')) checked @endif
@@ -233,7 +254,7 @@
                                     type="checkbox"
                                     name="accept_terms_and_conditions"
                                     id="terminos"
-                                    style="width: 12px;">
+                                    style="width: 12px; margin-right: 5px;">
     						    Conozco y acepto la <a class="font-weight700 text-white" target="_blank" href="https://www.gane.com.co/aviso-de-privacidad/">política de datos de REDCOLSA.</a>
                                 @error('accept_terms_and_conditions')
                                     <div class="text-warning mb-3">
@@ -247,7 +268,7 @@
                             {{-- Soy mayor de edad --}}
                             <label
                                 class="@error('of_legal_age') text-warning @enderror"
-                                style="color: #fff;font-size: 14px;">
+                                style="color: #fff;font-size: 14px; margin: 0.5rem 0; text-align: center; width: 100%;">
                                 <input
                                     required
                                     @if (old('of_legal_age')) checked @endif
@@ -255,7 +276,7 @@
                                     type="checkbox"
                                     name="of_legal_age"
                                     id="edad"
-                                    style="width: 12px;">
+                                    style="width: 12px; margin-right: 5px;">
                                 Soy mayor de edad
                                 @error('of_legal_age')
                                     <div class="text-warning mb-3">
@@ -266,39 +287,12 @@
 
 
 
-                            {{-- Ya tengo cuenta en BetPlay --}}
-                            <div>
-                                <label
-                                    class="@error('has_betplay_account') text-warning @enderror"
-                                    style="color: #fff;font-size: 14px;">
-                                    <input
-                                        @if (old('has_betplay_account')) checked @endif
-                                        value="1"
-                                        type="checkbox"
-                                        name="has_betplay_account"
-                                        id="betplay"
-                                        style="width: 12px;">
-                                    Ya tengo cuenta en BetPlay
-                                    @error('has_betplay_account')
-                                        <div class="text-warning mb-3">
-                                            <small>{{ $message }}</small>
-                                        </div>
-                                    @enderror
-                                </label>
-                            </div>
-
-
-
-                            <!--<div class="contactform-messages">Gracias por escribirnos.<br> Nos pondremos en contacto con usted.</div>-->
-
-
-
                             {{-- Submit --}}
 						    <input
                                 type="submit"
                                 name="enviar"
                                 id="registrar-usuario"
-                                value="Registrar">
+                                value="Enviar datos">
 
 						</form>
 					</div>

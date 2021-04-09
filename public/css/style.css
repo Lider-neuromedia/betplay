@@ -492,3 +492,64 @@ input#registrar-usuario:disabled {
 	width: 170px;
 	}
 }
+
+.has_betplay {
+    align-items: center;
+    border-radius: 0.5rem;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: stretch;
+    margin: 0.8rem 0;
+    overflow: hidden;
+}
+.has_betplay label {
+    align-items: center;
+    background-color: #031140;
+    box-sizing: border-box;
+    color: #ffffff;
+    display: flex;
+    flex: 1 1 auto;
+    flex-flow: row nowrap;
+    font-size: 0.8rem;
+    justify-content: space-around;
+    padding: 0.8rem 0.5rem;
+}
+.has_betplay .radio_checkbox {
+    border: 1px solid #ffffff;
+    box-sizing: border-box;
+    border-radius: 4px;
+    height: 1.2rem;
+    margin-right: 0.5rem;
+    position: relative;
+    width: 1.3rem;
+}
+.has_betplay input[type="radio"] {
+    display: none;
+}
+.has_betplay input[type="radio"]:checked + label {
+    background-color: #ffffff;
+    color: #031140;
+}
+.has_betplay input[type="radio"]:checked + label .radio_checkbox {
+    background-color: #031140;
+}
+.has_betplay input[type="radio"]:checked + label .radio_checkbox:after,
+.has_betplay input[type="radio"]:checked + label .radio_checkbox:before {
+    position: absolute;
+    content: "";
+    height: 2px;
+    background-color: #ffffff;
+    transform: translate(-50%, -50%) rotate(45deg);
+}
+.has_betplay input[type="radio"]:checked + label .radio_checkbox:before {
+    left: 40%;
+    top: 60%;
+    transform: translate(-50%, -50%) rotate(45deg);
+    width: 5px;
+}
+.has_betplay input[type="radio"]:checked + label .radio_checkbox:after {
+    left: 55%;
+    top: 55%;
+    transform: translate(-50%, -50%) rotate(-45deg);
+    width: 8px;
+}
