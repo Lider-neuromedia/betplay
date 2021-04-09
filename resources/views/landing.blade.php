@@ -6,6 +6,7 @@
     <meta name="keywords" content="">
     <meta name="description" content="Cali vive la experiencia BetPlay. Apuéstale a tu pasión y llévate una recarga de 5 mil pesos con Gane BetPlay">
     <meta name="google-site-verification" content="FOtzheHu5IARVjNLuJTp0oe4iOo_TPl8pk5Glq0_i-s" />
+    <link rel="shortcut icon" href="{{ asset('favicon.ico') }}" type="image/x-icon">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.0.0/animate.min.css"/>
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <script src="{{ asset('js/wow.min.js') }}"></script>
