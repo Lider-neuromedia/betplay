@@ -22,7 +22,7 @@
 <table border="0" cellpadding="0" cellspacing="0" width="600px"; style="margin:0 auto;padding-top: 20px;">
 	<tr>
 		<td width="50%">
-			<img style="float: right;display: block;" src="https://portalgane.com/multimedia/concepto.svg" alt="Perdiste">
+			<img style="float: right;display: block;" src="https://portalgane.com/multimedia/concepto.png" alt="Perdiste">
 		</td>
 		<td width="50%">
 			<p style="color:#131F4C;letter-spacing: -0.01px;text-align: left; font-size: 14px; font-family: Arial, sans-serif, 'Open Sans'; line-height: 17px;"><span style="font-weight:bold; font-size:54px;padding-bottom: 5px;display:block">Oops!</span>
