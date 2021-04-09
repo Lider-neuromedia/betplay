@@ -12,7 +12,7 @@ p,h1,h2,h3,h4,h5,h6{
     background: #f1f1f1;
 }
 body{
-    background-image: url(/images/bg.jpg);
+    background-image: url(../images/bg.jpg);
     background-repeat: no-repeat;
     background-size: cover;
 }
@@ -151,50 +151,50 @@ body{
     height: 30px;
 }
 .fb {
-    background-image: url(/images/face_color.png);
+    background-image: url(../images/face_color.png);
     background-position: center;
     padding: 20px;
     border-bottom: 1px solid #D8DFE5;
     border-radius: 10px 0 0;
 }
 .fb:hover {
-    background-image: url(/images/face_blanco.png);
+    background-image: url(../images/face_blanco.png);
     background-color: #1e3480;
     transition: .3s;
 }
 
 .ins {
-    background-image: url(/images/insta_blanco.png);
+    background-image: url(../images/insta_blanco.png);
     background-position: center;
     border-bottom: 1px solid #D8DFE5;
     padding: 20px;
 }
 .ins:hover {
-    background-image: url(/images/insta_blanco.png);
+    background-image: url(../images/insta_blanco.png);
     background-color: #1e3480;
     transition: .3s;
 }
 
 .twit {
-    background-image: url(/images/twitter_color.png);
+    background-image: url(../images/twitter_color.png);
     background-position: center;
     border-bottom: 1px solid #D8DFE5;
     padding: 20px;
 }
 .twit:hover {
-    background-image: url(/images/twitter_blanco.png);
+    background-image: url(../images/twitter_blanco.png);
     background-color: #1e3480;
     transition: .3s;
 }
 
 .youtub {
-    background-image: url(/images/youtube_color.png);
+    background-image: url(../images/youtube_color.png);
     background-position: center;
     padding: 20px;
     border-radius: 0 0 0 10px;
 }
 .youtub:hover {
-    background-image: url(/images/youtube_blanco.png);
+    background-image: url(../images/youtube_blanco.png);
     background-color: #1e3480;
     transition: .3s;
 }
@@ -202,7 +202,7 @@ body{
 
 /*** Header ***/
 .burbujaGane{
-    background-image: url(/images/Rectangle.png);
+    background-image: url(../images/Rectangle.png);
     background-position: top left;
     background-size: contain;
     background-repeat: no-repeat;
@@ -308,7 +308,7 @@ input#registrar-usuario:disabled {
 /*** Footer ***/
 
 .page-footer {
-    background-image: url(/images/BG_footer.png);
+    background-image: url(../images/BG_footer.png);
     background-repeat: no-repeat;
     background-size: cover;
     padding: 80px 0 35px;
