@@ -35,7 +35,7 @@ class CodeAssigned extends Mailable
     {
         if ($this->code == null) {
 
-            return $this->subject('¡Lo sentimos!')->view('emails.betplay_lose');
+            return $this->subject('Ya haces parte del equipo BetPlay')->view('emails.betplay_lose');
 
         }
 
