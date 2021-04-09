@@ -33,6 +33,12 @@ class CodeAssigned extends Mailable
      */
     public function build()
     {
-        return $this->subject('Código Asignado')->view('emails.code-assigned');
+        if ($this->code == null) {
+
+            return $this->subject('¡Lo sentimos!')->view('emails.betplay_lose');
+
+        }
+
+        return $this->subject('¡Betplay te felicita!')->view('emails.betplay_win');
     }
 }

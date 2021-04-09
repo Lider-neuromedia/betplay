@@ -3,12 +3,10 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Support\Facades\Mail;
 use League\Csv\Reader;
 use League\Csv\Writer;
 use Carbon\Carbon;
 use App\Client;
-use App\Mail\CodeAssigned;
 
 class Code extends Model
 {
@@ -48,8 +46,6 @@ class Code extends Model
 
         $client->code()->associate($code);
         $client->save();
-
-        Mail::to($client->email)->send(new CodeAssigned($client));
 
         self::generateReports();
     }

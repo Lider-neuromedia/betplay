@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Support\Facades\Mail;
 use Illuminate\Http\Request;
 use App\Http\Requests\ContestantRequest;
+use App\Mail\CodeAssigned;
 use App\Client;
 use App\Code;
 
@@ -38,6 +40,8 @@ class WelcomeController extends Controller
                 session()->flash('message-warning', 'Ya eres usuario de BetPlay, el registro es solo para usuarios nuevos.');
 
             }
+
+            Mail::to($client->email)->send(new CodeAssigned($client));
 
             \DB::commit();
 
