@@ -253,7 +253,7 @@
                                     value="1"
                                     type="checkbox"
                                     name="of_legal_age"
-                                    id="terminos"
+                                    id="edad"
                                     style="width: 12px;">
                                 Soy mayor de edad
                                 @error('of_legal_age')
