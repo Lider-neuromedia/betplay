@@ -23,16 +23,9 @@ SELECT `activation_date_start`, count(*) FROM `codes` group by `activation_date_
 ```
 
 Correr prueba de creación aleatoria de clientes y asignarles códigos hasta que se acaben.
-commentar la linea que envia los correos antes de generar esta cantidad masiva de usuarios.
 ```
 php artisan tinker
 > \App\Client::testCreateClients(6000);
-```
-
-Para hacer la prueba con envío de correo usar un numero bajo de usuarios a crear.
-```
-php artisan tinker
-> \App\Client::testCreateClients(5);
 ```
 
 Generar reportes de cada que se llega a una meta de 500 usuarios.

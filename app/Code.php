@@ -2,10 +2,12 @@
 
 namespace App;
 
+use Illuminate\Support\Facades\Mail;
 use Illuminate\Database\Eloquent\Model;
 use League\Csv\Reader;
 use League\Csv\Writer;
 use Carbon\Carbon;
+use App\Mail\GoalAchieved;
 use App\Client;
 
 class Code extends Model
@@ -89,6 +91,9 @@ class Code extends Model
             if ($count >= $goal && $exists_report == false) {
 
                 self::generate500GoalReport($report_path, $goal - 499);
+
+                $emails = explode(',', env('MAILS_NEUROMEDIA', ''));
+                Mail::to($emails)->send(new GoalAchieved($goal, $report_path));
 
             }
 
