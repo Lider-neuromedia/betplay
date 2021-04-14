@@ -152,7 +152,7 @@
                             <input
                                 required
                                 class="@error('document') border border-warning @enderror"
-                                minlength="8"
+                                minlength="6"
                                 maxlength="10"
                                 value="{{ old('document') }}"
                                 type="text"

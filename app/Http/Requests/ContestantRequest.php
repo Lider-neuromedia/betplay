@@ -25,7 +25,7 @@ class ContestantRequest extends FormRequest
     {
         return [
             'name' => 'required|string|max:50',
-            'document' => 'required|digits_between:8,10|unique:clients,document',
+            'document' => 'required|digits_between:6,10|unique:clients,document',
             'email' => 'required|string|email|max:50|unique:clients,email',
             'phone' => 'required|string|max:30',
             'address' => 'required|string|max:100',
