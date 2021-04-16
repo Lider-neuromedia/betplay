@@ -60,6 +60,7 @@ class Code extends Model
 
             $record['Valor'] = trim($record['Valor']);
             $record['Valor'] = str_replace('.','', $record['Valor']);
+            $record['Valor'] = str_replace(',','', $record['Valor']);
             $record['Fecha Activación'] = Carbon::createFromFormat('d/m/Y h:i:s A', $record['Fecha Activación']);
             $record['Fecha Final Vig'] = Carbon::createFromFormat('d/m/Y h:i:s A', $record['Fecha Final Vig']);
 
