@@ -33,11 +33,18 @@ class WelcomeController extends Controller
 
                 Code::assignCodeToClient($client);
 
-                session()->flash('message-success', 'Recibirás un correo con un código alfanumérico, el cual deberás registrar en www.betplay.com.co para redimir el cupón.');
+                session()->flash('message-success', '
+                    Recibirás un correo con un código alfanumérico,
+                    el cual deberás registrar en www.betplay.com.co para redimir el cupón.
+                    El código alfanumérico enviado al correo registrado sólo se activará en cuenta nueva de BetPlay, no aplica para usuarios antiguos.
+                ');
 
             } else {
 
-                session()->flash('message-warning', 'Ya eres usuario de BetPlay, el registro es solo para usuarios nuevos.');
+                session()->flash('message-warning', '
+                    Ya eres usuario de BetPlay, el registro es solo para usuarios nuevos.
+                    El código alfanumérico enviado al correo registrado sólo se activará en cuenta nueva de BetPlay, no aplica para usuarios antiguos.
+                ');
 
             }
 
