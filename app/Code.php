@@ -61,8 +61,10 @@ class Code extends Model
             $record['Valor'] = trim($record['Valor']);
             $record['Valor'] = str_replace('.','', $record['Valor']);
             $record['Valor'] = str_replace(',','', $record['Valor']);
-            $record['Fecha Activación'] = Carbon::createFromFormat('d/m/Y h:i:s A', $record['Fecha Activación']);
-            $record['Fecha Final Vig'] = Carbon::createFromFormat('d/m/Y h:i:s A', $record['Fecha Final Vig']);
+            $record['Fecha Activación'] = Carbon::createFromFormat('m/d/Y', $record['Fecha Activación']);
+            $record['Fecha Final Vig'] = Carbon::createFromFormat('m/d/Y', $record['Fecha Final Vig']);
+            // $record['Fecha Activación'] = Carbon::createFromFormat('d/m/Y h:i:s A', $record['Fecha Activación']);
+            // $record['Fecha Final Vig'] = Carbon::createFromFormat('d/m/Y h:i:s A', $record['Fecha Final Vig']);
 
             Code::create([
                 'consecutive' => $record['Consecutivo'],
